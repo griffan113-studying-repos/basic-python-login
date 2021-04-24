@@ -31,7 +31,7 @@ def successPopUp(msg):
 def login(userName, password):
     if userName == '' or password == '':
         errorPopUp('Digite todos os campos!')
-    elif userName == 'Eliel' and password == '1234':
+    elif userName == 'admin' and password == '12345':
         successPopUp('Logado!')
     else:
         errorPopUp('Verifique as credenciais!')
