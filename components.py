@@ -1,32 +1,40 @@
 from tkinter import *
-from functions import login
+from functions import Functions
+
+# from functions import users
 
 """ipadx=20, ipady=20, padx=5, pady=5, side="top", fill=X, expand=True"""
 
-def renderComponents(app):
-    # Containes
+funcs = Functions()
 
-    userContainer = Frame(app)
-    userContainer.pack(padx=10, pady=40)
 
-    passContainer = Frame(app)
-    passContainer.pack(padx=10, pady=10)
+class Components:
+    def __init__(self):
+        pass
 
-    # Widgets
+    def render_components(self, app):
+        # Containers
+        usercontainer = Frame(app)
+        usercontainer.pack(padx=10, pady=40)
 
-    usuarioLabel = Label(userContainer, text="Digite o usuário")
-    usuarioLabel.pack(ipadx=20, ipady=20, padx=5, pady=5, side=LEFT)
+        passcontainer = Frame(app)
+        passcontainer.pack(padx=10, pady=10)
 
-    usuarioInputVar = StringVar()
-    usuarioInput = Entry(userContainer, textvariable=usuarioInputVar)
-    usuarioInput.pack(ipadx=10, ipady=10, padx=5, pady=5, side=LEFT)
+        # Widgets
 
-    passLabel = Label(passContainer, text="Digite a senha", fg="#000")
-    passLabel.pack(ipadx=20, ipady=20, padx=5, pady=5, side=LEFT)
+        usuariolabel = Label(usercontainer, text="Digite o usuário")
+        usuariolabel.pack(ipadx=20, ipady=20, padx=5, pady=5, side=LEFT)
 
-    passInputVar = StringVar()
-    passInput = Entry(passContainer, textvariable=passInputVar, show="*")
-    passInput.pack(ipadx=10, ipady=10, padx=5, pady=5, side=LEFT)
+        usuario_input_var = StringVar()
+        usuario_input = Entry(usercontainer, textvariable=usuario_input_var)
+        usuario_input.pack(ipadx=10, ipady=10, padx=5, pady=5, side=LEFT)
 
-    botao = Button(app, text="Enviar", command=lambda: login(usuarioInputVar.get(), passInputVar.get()))
-    botao.pack(ipadx=10, ipady=7, padx=5, pady=50)
+        pass_label = Label(passcontainer, text="Digite a senha", fg="#000")
+        pass_label.pack(ipadx=20, ipady=20, padx=5, pady=5, side=LEFT)
+
+        pass_input_var = StringVar()
+        pass_input = Entry(passcontainer, textvariable=pass_input_var, show="*")
+        pass_input.pack(ipadx=10, ipady=10, padx=5, pady=5, side=LEFT)
+
+        botao = Button(app, text="Enviar", command=lambda: funcs.login(usuario_input_var.get(), pass_input_var.get()))
+        botao.pack(ipadx=10, ipady=7, padx=5, pady=50)

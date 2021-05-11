@@ -1,5 +1,5 @@
 from tkinter import *
-from components import renderComponents
+from components import Components
 
 app = Tk()
 app.title("Faça Login")
@@ -8,6 +8,6 @@ app.maxsize("500","400")
 app.geometry("500x400")
 app.configure(background="#393939")
 
-renderComponents(app)
+Components().render_components(app)
 
 app.mainloop()
