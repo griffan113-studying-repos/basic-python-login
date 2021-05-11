@@ -1,0 +1,5 @@
+_1:
+  name: "Eliel"
+  password: "123"
+  age: "18"
+  admin: True
